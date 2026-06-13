@@ -1,0 +1,563 @@
+/* Navbar container */
+.custom-navbar {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  padding: 12px 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Brand icon */
+.navbar-brand i {
+  font-size: 24px;
+  color: #fe424d;
+  transition: 0.3s;
+}
+
+.navbar-brand i:hover {
+  color: #4ade80;
+  transform: rotate(360deg);
+  transition-duration: 1.5s;
+}
+
+/* Nav links */
+.navbar .nav-link {
+  color: #e2e8f0 !important;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-right: 14px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Active link */
+.navbar .nav-link.active {
+  color: #eef2f0 !important;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+/* Underline animation */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #38bdf8;
+  transition: 0.3s;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile toggle icon fix (for dark bg) */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+
+
+
+
+
+/* Footer Style */
+
+/* Footer main */
+.custom-footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 40px 0;
+  margin-top: 40px;
+}
+
+/* Brand */
+.footer-brand {
+  font-size: 22px;
+  font-weight: bold;
+  color: #22c55e;
+}
+
+/* Text */
+.footer-text {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Titles */
+.footer-title {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+
+/* Social icons */
+.footer-socials i {
+  font-size: 20px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-socials i:hover {
+  color: #38bdf8;
+  transform: translateY(-3px);
+}
+
+/* Bottom section */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.footer-bottom a {
+  margin-left: 10px;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #38bdf8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container{
+    flex:1;
+
+}
+
+
+
+
+/* Body Style */
+
+body {
+  background: linear-gradient(135deg, #f5f7fa, #e4edf5);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+h1 {
+  text-align: center;
+  margin: 25px 0;
+  font-weight: 700;
+  color: #0f172a;
+}
+/* ===== GRID ===== */
+.row {
+  row-gap: 25px;
+}
+
+/* ===== CARD ===== */
+.card {
+  border: none !important;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  /* width: 25vw; */
+  
+
+  
+}
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+
+
+/* ===== IMAGE LINK ===== */
+.image-link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Image */
+.card-img-top {
+  height: 230px;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+
+
+/* Zoom effect */
+.image-link:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+/* ===== OVERLAY EFFECT ===== */
+.image-link::after {
+  content: "View Details";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+
+/* Show overlay on hover */
+.image-link:hover::after {
+  opacity: 1;
+}
+
+/* ===== CARD BODY ===== */
+.card-body {
+  padding: 16px;
+}
+
+/* Title */
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Description */
+.card-text {
+  font-size: 14px;
+  color: #64748b;
+  height: 42px;
+  overflow: hidden;
+}
+
+
+
+/* ===== LIST ===== */
+.list-group-item {
+  border: none;
+  font-size: 14px;
+  color: #334155;
+}
+
+/* Price highlight */
+.list-group-item:first-child {
+  font-weight: bold;
+  color: #16a34a;
+  font-size: 15px;
+}
+
+
+/* ===== ACTION SECTION ===== */
+.card-body:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Edit button */
+.btn-outline-primary {
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 5px 12px;
+  transition: 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+
+/* Delete button */
+.btn-danger {
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 5px 12px;
+  transition: 0.3s;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+
+/* ===== PREMIUM TOUCH ===== */
+.card::before {
+  /* content: "₹"; */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #22c55e;
+  color: white;
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+
+
+
+/* Showe.ejs changes image */
+.show-img{
+    height: 37vh;
+}
+
+
+
+
+/* REview */
+/* .review-card {
+    max-width: 700px;
+    margin: auto;
+    border: none;
+    border-radius: 15px;
+}
+
+.review-card textarea {
+    resize: none;
+    border-radius: 10px;
+}
+
+.review-card .form-range {
+    cursor: pointer;
+}
+
+.review-card button {
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.review-card button:hover {
+    transform: translateY(-2px);
+} */
+
+/* EXTRA */
+/* Listing Card */
+
+
+/* Listing Image */
+.show-img {
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Listing Card */
+.listing-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.listing-card .card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.listing-card .card-text {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Review Card */
+.review-card {
+    width: 65vw;
+    margin: auto;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h4 {
+    font-weight: 600;
+    color: #222;
+}
+
+/* Form Controls */
+.review-card textarea {
+    resize: none;
+    border-radius: 8px;
+}
+
+.review-card textarea:focus,
+.review-card input:focus {
+    box-shadow: none;
+    border-color: #212529;
+}
+
+/* Range Slider */
+.form-range {
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn-dark {
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.btn-outline-primary,
+.btn-danger {
+    min-width: 100px;
+    border-radius: 8px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .listing-card,
+    .review-card {
+        width: 95vw !important;
+    }
+
+    .show-img {
+        height: 250px;
+    }
+
+    .listing-card .card-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* REVIEW SECTIOm */
+
+.review-title{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 3rem 0;
+    color: #222;
+}
+
+.reviews-container{
+    max-width: 850px;
+    margin: auto;
+}
+
+.review-item{
+    margin-bottom: 3rem;
+}
+
+.review-user-section{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.review-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.review-user-name{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.review-user-info{
+    margin: 0;
+    color: #717171;
+    font-size: 0.9rem;
+}
+
+.review-meta{
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.review-date{
+    color: #717171;
+}
+
+.review-comment{
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 90%;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .review-title{
+        font-size: 1.5rem;
+    }
+
+    .review-comment{
+        max-width: 100%;
+    }
+}

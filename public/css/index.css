@@ -1,0 +1,82 @@
+/* Page title */
+.page-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.listing-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect */
+.listing-card:hover {
+  transform: translateY(-18px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.listing-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Body */
+.listing-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Title */
+.listing-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Description */
+.listing-desc {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Price */
+.listing-price {
+  font-size: 17px;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+/* Location */
+.listing-location {
+  font-size: 13px;
+  color: #475569;
+}
+
+/* Buttons */
+.listing-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Buttons hover */
+.btn-outline-primary:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc2626;
+  color: white;
+}
