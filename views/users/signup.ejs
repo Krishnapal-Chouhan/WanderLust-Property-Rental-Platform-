@@ -1,0 +1,243 @@
+<!-- <% layout("/layouts/boilerplate")%>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1>Sign Up For WanderLust</h1>
+            <form action="/signup" method="POST" class="needs-validation" novalidate>
+                 <div class="mb-3">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username"  class="form-control"
+                            required>
+                        <div class="valid-feedback">Look Nice</div>
+                         <div class="invalid-feedback">Required</div>
+                       
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email"  class="form-control"
+                            required>
+                        <div class="valid-feedback">Look Nice</div>
+                         <div class="invalid-feedback">Required</div>
+                       
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password"  class="form-control"
+                            required>
+                        <div class="valid-feedback">Look Nice</div>
+                         <div class="invalid-feedback">Required</div>
+                        
+                        
+                       
+                    </div>
+
+                    <button class="btn btn-success">Sign Up</button>
+            </form>
+
+            </div>
+            </div>
+ -->
+
+
+ <!-- NEW Style -->
+
+ <% layout("/layouts/boilerplate") %>
+
+<style>
+    body{
+        background: linear-gradient(
+            135deg,
+            #0F172A 0%,
+            #1E293B 50%,
+            #14B8A6 100%
+        );
+
+        /* background: linear-gradient(135deg,
+                        #fff7ed,
+                        #ffedd5,
+                        #fce7f3); */
+
+        min-height:100vh;
+    }
+
+    .signup-container{
+        min-height:85vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .signup-card{
+        width:100%;
+        max-width:500px;
+        padding:2rem;
+        border-radius:25px;
+        background:rgba(255,255,255,0.08);
+        backdrop-filter:blur(18px);
+        -webkit-backdrop-filter:blur(18px);
+        border:1px solid rgba(255,255,255,0.15);
+        box-shadow:0 8px 32px rgba(0,0,0,.35);
+        animation:fadeInUp .8s ease;
+    }
+
+    .signup-title{
+        text-align:center;
+        color:#fff;
+        font-weight:700;
+        margin-bottom:10px;
+    }
+
+    .signup-title span{
+        color:#FBBF24;
+    }
+
+    .subtitle{
+        text-align:center;
+        color:rgba(255,255,255,.8);
+        margin-bottom:25px;
+    }
+
+    .form-label{
+        color:white;
+        font-weight:500;
+    }
+
+    .form-control{
+        border:none;
+        border-radius:14px;
+        padding:12px;
+        background:rgba(255,255,255,.9);
+        transition:all .3s ease;
+    }
+
+    .form-control:focus{
+        transform:translateY(-2px);
+        box-shadow:0 0 20px rgba(20,184,166,.35);
+    }
+
+    .btn-signup{
+        width:100%;
+        border:none;
+        border-radius:14px;
+        padding:12px;
+        font-size:1.05rem;
+        font-weight:600;
+        color:white;
+        background:linear-gradient(
+            135deg,
+            #14B8A6,
+            #0D9488
+        );
+        transition:all .3s ease;
+    }
+
+    .btn-signup:hover{
+        transform:translateY(-3px);
+        box-shadow:0 15px 30px rgba(20,184,166,.35);
+    }
+
+    @keyframes fadeInUp{
+        from{
+            opacity:0;
+            transform:translateY(40px);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+
+    .signup-card{
+        animation:
+            fadeInUp .8s ease,
+            float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+        0%,100%{
+            transform:translateY(0);
+        }
+        50%{
+            transform:translateY(-8px);
+        }
+    }
+</style>
+
+<div class="container signup-container">
+
+<div class="signup-card">
+
+    <h1 class="signup-title">
+        Join <span>WanderLust</span>
+    </h1>
+
+    <p class="subtitle">
+        Create your account and start exploring amazing stays.
+    </p>
+
+    <form action="/signup" method="POST" class="needs-validation" novalidate>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                class="form-control"
+                required
+            >
+
+            <div class="invalid-feedback">
+                Username is required
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                required
+            >
+
+            <div class="invalid-feedback">
+                Valid email is required
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="password" class="form-label">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                required
+            >
+
+            <div class="invalid-feedback">
+                Password is required
+            </div>
+        </div>
+
+        <button class="btn-signup">
+            Create Account
+        </button>
+
+    </form>
+
+</div>
+
+
+</div>

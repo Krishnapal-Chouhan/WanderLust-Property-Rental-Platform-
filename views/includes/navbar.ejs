@@ -1,21 +1,224 @@
+<!-- ////////////// -->
+<style>
+    /* ================= NAVBAR ================= */
+
+    .custom-navbar {
+        background: #fff;
+        padding: 12px 20px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, .08);
+    }
+
+    .navbar-brand i {
+        color: #ff385c;
+        font-size: 2rem;
+    }
+
+    .brand-name {
+        font-weight: 700;
+        color: #00b894 !important;
+        font-size: 1.05rem;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .search-form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search-inp {
+        width: 420px;
+        height: 46px;
+        border-radius: 50px;
+        border: 1px solid #ddd;
+        padding: 0 20px;
+        font-size: 15px;
+        transition: .3s;
+    }
+
+    .search-inp:focus {
+        border-color: #ff385c;
+        box-shadow: 0 0 0 .18rem rgba(255, 56, 92, .18);
+    }
+
+    .search-inp::placeholder {
+        color: #777;
+    }
+
+    .btn-search {
+        height: 46px;
+        border-radius: 50px;
+        background: #ff385c;
+        color: #fff;
+        border: none;
+        padding: 0 22px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .btn-search:hover {
+        background: #e11d48;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    .btn-search i {
+        margin: 0;
+    }
+
+    /* ================= AVATAR ================= */
+
+    .iconik {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #ff385c;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:991px) {
+
+        .mx-auto {
+            width: 100%;
+        }
+
+        .search-form {
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        .search-inp {
+            width: 100%;
+        }
+
+        .navbar-nav.ms-auto {
+            margin-top: 15px;
+        }
+
+    }
+
+    @media(max-width:576px) {
+
+        .search-form {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .btn-search {
+            width: 100%;
+            justify-content: center;
+        }
+
+    }
+</style>
+
+
+
 <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom custom-navbar sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><i class="fa-regular fa-compass"></i></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+
+        <!-- Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- LEFT SIDE LINKS -->
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/listings">Home</a>
-                 <a class="nav-link active " href="/listings">All Listings</a>
-                <a class="nav-link " href="/listings/new">Add new List</a>
-                  <a class="nav-link  " href="#">Features</a>
-                   
+                <!-- <a class="nav-link" href="/listings">Home</a> -->
+                <a class="nav-link" href="/listings">Explore</a>
+             <!-- <a class="nav-link" href="/listings/new">Add Listing</a> -->
+               <!-- <a class="nav-link" href="#">Features</a>
                 <a class="nav-link" href="#">Pricing</a>
-                 <a class="nav-link" href="#">More</a>
-              
+                <a class="nav-link" href="#">More</a> -->
             </div>
+
+            <!-- <div class="navbar-nav ms-auto">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 search-inp" type="search" placeholder="Search Destination"
+                        aria-label="Search" style="color: aliceblue;" />
+                    <button class="btn btn-search" type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i>Search</button>
+                </form>
+            </div> -->
+
+
+            <form class="d-flex" role="search" action="/listings" method="GET">
+
+                <input class="form-control me-2 search-inp" type="search" name="search" placeholder="Search Destination"
+                    value="<%= typeof search !== 'undefined' ? search : '' %>" />
+
+                <button class="btn btn-search" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search
+                </button>
+
+            </form>
+
+
+            <!-- RIGHT SIDE -->
+            <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
+
+                <a class="nav-link" href="/listings"
+                    style="font-weight: 800; color: aquamarine ; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Wanderlust</a>
+                <% if(!currUser){ %>
+
+                    <a class="nav-link" href="/login"><b>Login</b></a>
+                    <a class="nav-link" href="/signup"><b>Signup</b></a>
+                    <% } %>
+
+                        <% if(currUser){ %>
+
+                            <!-- Logout -->
+                            <!-- <a class="nav-link" href="/logout">Logout</a> -->
+
+                            <!-- Profile Dropdown -->
+                            <div class="dropdown">
+
+                                <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    <!-- Avatar -->
+                                    <div class="iconik">
+                                        <%= currUser?.username ? currUser.username.charAt(0).toUpperCase() : "G" %>
+                                    </div>
+
+                                    <span>
+                                        <%= currUser.username %>
+                                    </span>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="/listings/new">Add Listing</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+                                </ul>
+
+                            </div>
+
+                            <% } %>
+
+            </div>
+
         </div>
     </div>
 </nav>

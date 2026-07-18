@@ -1,63 +1,363 @@
 <% layout("/layouts/boilerplate")%>
 
-<body>
-    <h1 class="text-center mt-3" style="font-family: 'Times New Roman', Times, serif; ">WanderLust</h1>
+    <style>
+        /* ==========================
+   FILTER CONTAINER
+========================== */
 
-    <div class="container d-flex justify-content-between">
-        <div class="row ">
+        #filters {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 12px 10px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            white-space: nowrap;
+        }
 
-            <% for(let listing of allListing){ %>
+        #filters::-webkit-scrollbar {
+            display: none;
+        }
 
-                <div class="col-md-4 mb-4 ">
+        /* ==========================
+   SINGLE FILTER
+========================== */
 
-                    <div class="card h-100">
+        .filter {
+            min-width: 85px;
+            text-align: center;
+            cursor: pointer;
+            opacity: .75;
+            transition: all .3s ease;
+            flex-shrink: 0;
+        }
 
-                        <!-- Clickable Image -->
-                        <a href="/listings/<%= listing._id %>" class="image-link">
-                            <img src="<%= listing.image.url || 'https://images.pexels.com/photos/29511872/pexels-photo-29511872.jpeg' %>"
-                                 class="card-img-top"
-                                 alt="Listing-Image">
-                        </a>
+        .filter i {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
 
-                        <div class="card-body">
-                            <h5 class="card-title"><%= listing.title %></h5>
+        .filter p {
+            margin: 0;
+            font-size: .82rem;
+        }
 
-                            <p class="card-text">
-                                <%= listing.description %>
-                            </p>
-                        </div>
+        .filter:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
 
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                               Price : ₹<%= listing.price?.toLocaleString("en-IN") || "N/A" %> /night
-                            </li>
-                            <li class="list-group-item">
+        /* ==========================
+   TAX TOGGLE
+========================== */
+
+        .tax-toggle {
+            margin-left: auto;
+            flex-shrink: 0;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 10px 16px;
+        }
+
+        /* =====================================================
+                    RESPONSIVE
+===================================================== */
+
+        /* Large Desktop (≥1400px) */
+
+        @media (min-width:1400px) {
+
+            #filters {
+                gap: 24px;
+            }
+
+            .filter {
+                min-width: 95px;
+            }
+
+            .filter i {
+                font-size: 1.6rem;
+            }
+
+            .filter p {
+                font-size: .9rem;
+            }
+
+        }
+
+
+        /* Laptop (1200px - 1399px) */
+
+        @media (max-width:1399px) {
+
+            #filters {
+                gap: 20px;
+            }
+
+            .filter {
+                min-width: 85px;
+            }
+
+        }
+
+
+        /* Tablet Landscape */
+
+        @media (max-width:992px) {
+
+            #filters {
+                gap: 16px;
+                padding: 10px;
+            }
+
+            .filter {
+                min-width: 80px;
+            }
+
+            .filter i {
+                font-size: 1.3rem;
+            }
+
+            .filter p {
+                font-size: .78rem;
+            }
+
+            .tax-toggle {
+                padding: 8px 12px;
+                font-size: .85rem;
+            }
+
+        }
+
+
+        /* Mobile */
+
+        @media (max-width:768px) {
+
+            #filters {
+                gap: 14px;
+                padding: 18px;
+            }
+
+            .filter {
+                min-width: 72px;
+            }
+
+            .filter i {
+                font-size: 1.2rem;
+            }
+
+            .filter p {
+                font-size: .72rem;
+            }
+
+            .tax-toggle {
+                padding: 8px 10px;
+                font-size: .75rem;
+            }
+
+        }
+
+
+        /* Small Mobile */
+
+        @media (max-width:480px) {
+
+            #filters {
+                gap: 10px;
+                padding: 6px;
+            }
+
+            .filter {
+                min-width: 65px;
+            }
+
+            .filter i {
+                font-size: 1rem;
+            }
+
+            .filter p {
+                font-size: .68rem;
+            }
+
+            .tax-toggle {
+                display: none;
+                /* hide switch on very small screens */
+            }
+
+        }
+    </style>
+
+    <body>
+        <!-- <h1 class="text-center mt-3 " style="font-family: 'Times New Roman', Times, serif; color: white;">WanderLust
+        </h1> -->
+        <div class="filter-wrapper">
+            <div id="filters">
+
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i>
+                    </div>
+                    <p>Trending</p>
+                </div>
+
+                <div class="filter">
+                    <div><i class="fa-solid fa-restroom"></i>
+                    </div>
+                    <p>Rooms</p>
+                </div>
+
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-city"></i></i>
+                    </div>
+                    <p>Iconic City</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain"></i>
+                    </div>
+                    <p>Mountains</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-brands fa-fort-awesome"></i>
+                    </div>
+                    <p>Castles</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-person-swimming"></i>
+                    </div>
+                    <p>Amazing Pools</p>
+                </div>
+
+                <div class="filter">
+                    <div><i class="fa-solid fa-campground"></i>
+                    </div>
+                    <p>Camping</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tractor"></i>
+                    </div>
+                    <p>Farms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-notdog fa-solid fa-snowflake"></i>
+                    </div>
+                    <p>Arctic</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mound"></i>
+                    </div>
+                    <p>Deserts</p>
+                </div>
+
+                <div class="tax-toggle">
+                    <div class="form-check-reverse form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                        <label class="form-check-label" for="switchCheckDefault">Display Total After Taxes</label>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="container d-flex  justify-content-evenly">
+                <div class="row ">
+
+<% if(allListings.length === 0){ %>
+
+<div class="alert alert-warning text-center">
+    No listings found.
+</div>
+
+<% } %>
+
+                            <% for(let listing of allListings){ %>
+
+                                <div class="col-md-4  mb-4 ">
+
+                                    <div class="card h-100">
+
+                                        <!-- Clickable Image -->
+                                        <a href="/listings/<%= listing._id %>" class="image-link">
+                                            <img src="<%= listing.image.url || 'https://images.pexels.com/photos/29511872/pexels-photo-29511872.jpeg' %>"
+                                                class="card-img-top" alt="Listing-Image">
+                                        </a>
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <%= listing.title %>
+                                            </h5>
+
+                                            <p class="card-text">
+                                                <%= listing.description %>
+                                            </p>
+                                        </div>
+
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                Price : ₹<%= listing.price?.toLocaleString("en-IN") || "N/A" %> /night
+                                                    <i class="tax-info">&nbsp;+18% GST</i>
+                                            </li>
+
+
+                                            <!-- <li class="list-group-item">
                                 Location : <%= listing.location %>
                             </li>
                             <li class="list-group-item">
                                 Country : <%= listing.country %>
-                            </li>
-                        </ul>
+                            </li> -->
 
-                        <div class="card-body d-flex justify-content-between align-items-center">
 
-                            <!-- Edit -->
-                            <a href="/listings/<%= listing._id %>" class="btn btn-outline-primary btn-sm col-12">
-                                Show Details
-                            </a>
+                                        </ul>
 
-                           
+                                        <div class="card-body d-flex justify-content-between align-items-center">
 
-                        </div>
+                                            <!-- Edit -->
+                                            <a href="/listings/<%= listing._id %>"
+                                                class="btn btn-outline-primary btn-sm col-12">
+                                                Show Details
+                                            </a>
 
-                    </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <% } %>
 
                 </div>
-
-            <% } %>
+            </div>
 
         </div>
-    </div>
 
-</body>
-</html>
+    </body>
+
+    </html>
+
+
+    <!-- NEW style -->
+    <script>
+        let taxswitch = document.getElementById("switchCheckDefault");
+
+        taxswitch.addEventListener("click", () => {
+            console.log("clicked");
+
+            let taxInfo = document.getElementsByClassName("tax-info");
+
+            for (info of taxInfo) {
+                if (info.style.display != "inline") {
+                    info.style.display = "inline";
+
+                } else {
+                    info.style.display = "none";
+                }
+
+            }
+
+        })
+    </script>

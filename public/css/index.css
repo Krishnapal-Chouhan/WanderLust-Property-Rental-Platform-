@@ -80,3 +80,21 @@
   background-color: #dc2626;
   color: white;
 }
+
+
+
+/* Flassh msg */
+.flash-alert{
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown{
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

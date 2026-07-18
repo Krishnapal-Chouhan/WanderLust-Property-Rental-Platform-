@@ -1,101 +1,137 @@
-const express  = require("express");
+const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
-const Listing = require("../models/listing");
+const Listing = require("../models/listing.js");
 const { listingSchema, reviewSchema } = require("../schema");
 const ExpressError = require("../utils/expressError.js");
+const { isLoggedIn, saveRedirectUrl, validateListing } = require("../middleware.js");
+const listingController = require("../controllers/listings.js");
+const multer = require("multer");
+const { storage } = require("../cloudConfig.js");
+// const { isLoggedIn, saveRedirectUrl, validateListing } = require("../middleware.js");
 
-
-// Validate Listing
-const validateListing = (req, res, next) => {
-
-    let { error } = listingSchema.validate(req.body);
-    // console.log("Result Is ", result);
-    if (error) {
-        throw new ExpressError(400, error);
-    } else {
-        next();
-    }
-
-}
-
-
-
+const upload = multer({ storage });
 
 // Index Route
-router.get("/", wrapAsync(async (req, res) => {
-    const allListing = await Listing.find({});
+// router.get("/", wrapAsync(listingController.index));
 
-    res.render("./listings/index.ejs", { allListing });
+router.get("/", wrapAsync(async (req, res) => {
+
+    const { search } = req.query;
+
+    let allListings;
+
+    if (search) {
+
+        allListings = await Listing.find({
+
+            $or: [
+
+                {
+                    title: {
+                        $regex: search,
+                        $options: "i"
+                    }
+                },
+
+                {
+                    location: {
+                        $regex: search,
+                        $options: "i"
+                    }
+                },
+
+                {
+                    country: {
+                        $regex: search,
+                        $options: "i"
+                    }
+                },
+
+                {
+                    description: {
+                        $regex: search,
+                        $options: "i"
+                    }
+                }
+
+            ]
+
+        });
+
+    } else {
+
+        allListings = await Listing.find({});
+
+    }
+
+    res.render("listings/index", {
+
+        allListings,
+        search
+
+    });
 
 }));
 
 // NEW form Creation
+//Compact Way to Write  ("/new");
+
+router.route("/new")
+    .get(isLoggedIn, listingController.renderNewForm)
+    .post(
+        isLoggedIn,
+        upload.single("listing-image"),
+        wrapAsync(listingController.addListingItem)
+    )
+
+
+
+// / \
+//  |
+//  |
+//  |
+
+
+
 // NEW Route
-router.get("/new", (req, res) => {
-    res.render("./listings/newForm.ejs");
-});
 
-// ADD List item
-router.post("/new", validateListing, wrapAsync(async (req, res) => {
-   
-    let { title, description, url, price, location, country } = req.body;
+// router.get("/new", isLoggedIn, listingController.renderNewForm);
 
-    // if (!title || !description || !url || !price || !location || !country) {
-    //     throw new ExpressError(400, "All fields are required");
-    // }
-    const newList = new Listing({
-        title,
-        description,
-        image: {
-            url: url
-        },
-        price,
-        location,
-        country
-    });
+// // ADD List item
+// router.post(
+//     "/new",isLoggedIn, wrapAsync(listingController.addListingItem)
+// );
 
-    await newList.save();
 
-    res.redirect("/listings");
 
-}));
 
 // Edit and Update Route
 // Get Route
-router.get("/:id/edit",wrapAsync( async (req, res) => {
-    let { id } = req.params;
-    const listing = await Listing.findById(id);
-
-    res.render("./listings/update.ejs", { listing });
-}));
+router.get("/:id/edit", wrapAsync(listingController.getEditForm));
 
 
-// Update Route
-
-router.put("/:id", wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let { title: newt, description: newd, image: newi, price: newp, location: newl, country: newc } = req.body;
-    await Listing.findByIdAndUpdate(id, { ...req.body.listing }, { new: true });
-
-    res.redirect("/listings");
-}));
+// // Update Route
+// router.put("/:id", saveRedirectUrl, wrapAsync(listingController.updateForm));
 
 
-// Delete Route
-router.delete("/:id", wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    await Listing.findByIdAndDelete(id);
-    res.redirect("/listings");
-}))
 
 
-// Show indi. listing route
-router.get("/:id", wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    const list = await Listing.findById(id).populate("reviews");
-    res.render("./listings/show.ejs", { list });
-}));
+// // Delete Route
+// router.delete("/:id", wrapAsync(listingController.deleteListing))
+
+
+
+
+// // Show indi. listing route
+// router.get("/:id", wrapAsync(listingController.showListing));
+
+
+// Compact way to erite ":id"
+router.route("/:id")
+    .put(saveRedirectUrl, upload.single("listing-image"), wrapAsync(listingController.updateForm))
+    .delete(wrapAsync(listingController.deleteListing))
+    .get(wrapAsync(listingController.showListing));
 
 
 module.exports = router;

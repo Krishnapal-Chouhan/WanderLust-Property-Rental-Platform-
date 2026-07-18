@@ -1,563 +1,1538 @@
-/* Navbar container */
-.custom-navbar {
-  background: linear-gradient(90deg, #0f172a, #1e293b);
-  padding: 12px 24px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Brand icon */
-.navbar-brand i {
-  font-size: 24px;
-  color: #fe424d;
-  transition: 0.3s;
-}
-
-.navbar-brand i:hover {
-  color: #4ade80;
-  transform: rotate(360deg);
-  transition-duration: 1.5s;
-}
-
-/* Nav links */
-.navbar .nav-link {
-  color: #e2e8f0 !important;
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin-right: 14px;
-  position: relative;
-  transition: 0.3s;
-}
-
-/* Active link */
-.navbar .nav-link.active {
-  color: #eef2f0 !important;
-}
-
-/* Hover effect */
-.navbar .nav-link:hover {
-  color: #38bdf8 !important;
-}
-
-/* Underline animation */
-.navbar .nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #38bdf8;
-  transition: 0.3s;
-}
-
-.navbar .nav-link:hover::after {
-  width: 100%;
-}
-
-/* Mobile toggle icon fix (for dark bg) */
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler-icon {
-  filter: invert(1);
-}
-
-
-
-
-
-
-/* Footer Style */
-
-/* Footer main */
-.custom-footer {
-  background: #0f172a;
-  color: #e2e8f0;
-  padding: 40px 0;
-  margin-top: 40px;
-}
-
-/* Brand */
-.footer-brand {
-  font-size: 22px;
-  font-weight: bold;
-  color: #22c55e;
-}
-
-/* Text */
-.footer-text {
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-/* Titles */
-.footer-title {
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-/* Links */
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 6px;
-}
-
-.footer-links a {
-  color: #cbd5f5;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-links a:hover {
-  color: #38bdf8;
-}
-
-/* Social icons */
-.footer-socials i {
-  font-size: 20px;
-  margin-right: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.footer-socials i:hover {
-  color: #38bdf8;
-  transform: translateY(-3px);
-}
-
-/* Bottom section */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 14px;
-}
-
-.footer-bottom a {
-  margin-left: 10px;
-  color: #94a3b8;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  color: #38bdf8;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.container{
-    flex:1;
-
-}
-
-
-
-
-/* Body Style */
-
+/* ===== Global Dark Theme ===== */
 body {
-  background: linear-gradient(135deg, #f5f7fa, #e4edf5);
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    background-color: #0f172a; /* deep navy */
+    color: #e2e8f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-
+/* ===== Heading ===== */
 h1 {
-  text-align: center;
-  margin: 25px 0;
-  font-weight: 700;
-  color: #0f172a;
-}
-/* ===== GRID ===== */
-.row {
-  row-gap: 25px;
+    color: #14b8a6; /* teal theme */
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-/* ===== CARD ===== */
+/* ===== Container spacing ===== */
+.container {
+     max-width: 1800px;   /* increase page width */
+    padding: 10px;
+}
+
+
+
+/* ===== Card Styling ===== */
 .card {
-  border: none !important;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: all 0.35s ease;
-  position: relative;
-  /* width: 25vw; */
-  
-
-  
+    background-color: #1e293b; /* dark slate */
+    border: 1px solid #334155;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    /* width: 100%; */
+    margin-bottom: 15px;
+    /* max-height: 400px; */
+    
+    
 }
 
-/* Hover animation */
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(20, 184, 166, 0.25);
 }
 
-
-
-/* ===== IMAGE LINK ===== */
-.image-link {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-/* Image */
+/* ===== Card Image ===== */
 .card-img-top {
-  height: 230px;
-  width: 100%;
-  object-fit: cover;
-  transition: 0.4s ease;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-
-
-/* Zoom effect */
-.image-link:hover .card-img-top {
-  transform: scale(1.08);
+.card-img-top:hover {
+    transform: scale(1.05);
 }
 
-/* ===== OVERLAY EFFECT ===== */
-.image-link::after {
-  content: "View Details";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-
-/* Show overlay on hover */
-.image-link:hover::after {
-  opacity: 1;
-}
-
-/* ===== CARD BODY ===== */
+/* ===== Card Body ===== */
 .card-body {
-  padding: 16px;
+    padding: 12px 15px;
 }
 
 /* Title */
 .card-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #0f172a;
+    color: #f1f5f9;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 /* Description */
 .card-text {
-  font-size: 14px;
-  color: #64748b;
-  height: 42px;
-  overflow: hidden;
+    color: #94a3b8;
+    font-size: 0.9rem;
+
+}
+
+.card-text {
+    color: #94a3b8;
+    font-size: 0.9rem;
+
+    /* limit height */
+    max-height: 80px;
+
+    /* scroll when content is long */
+    overflow-y: auto;
+
+    /* clean spacing */
+    line-height: 1.4;
+    padding-right: 5px;
+   
+}
+
+/* optional: smooth scrollbar styling */
+.card-text::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card-text::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+.card-text::-webkit-scrollbar-thumb:hover {
+    background: #14b8a6;
 }
 
 
-
-/* ===== LIST ===== */
+/* ===== List Group ===== */
 .list-group-item {
-  border: none;
-  font-size: 14px;
-  color: #334155;
+    background-color: #1e293b;
+    color: #cbd5e1;
+    border: none;
+    border-top: 1px solid #334155;
 }
 
-/* Price highlight */
-.list-group-item:first-child {
-  font-weight: bold;
-  color: #16a34a;
-  font-size: 15px;
-}
-
-
-/* ===== ACTION SECTION ===== */
-.card-body:last-child {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Edit button */
+/* ===== Buttons ===== */
 .btn-outline-primary {
-  border-radius: 8px;
-  font-size: 13px;
-  padding: 5px 12px;
-  transition: 0.3s;
+    border-color: #14b8a6;
+    color: #14b8a6;
+    transition: 0.3s ease;
 }
 
 .btn-outline-primary:hover {
-  background: #2563eb;
-  color: #fff;
+    background-color: #14b8a6;
+    color: #0f172a;
 }
 
-
-/* Delete button */
-.btn-danger {
-  border-radius: 8px;
-  font-size: 13px;
-  padding: 5px 12px;
-  transition: 0.3s;
+/* ===== Layout Fix ===== */
+.row {
+   width: 100%;
+    max-width: 2600px;
+   
 }
 
-.btn-danger:hover {
-  background: #dc2626;
-}
-
-
-/* ===== PREMIUM TOUCH ===== */
-.card::before {
-  /* content: "₹"; */
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #22c55e;
-  color: white;
-  font-size: 12px;
-  padding: 5px 9px;
-  border-radius: 8px;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.card:hover::before {
-  opacity: 1;
+.image-link {
+    display: block;
+    overflow: hidden;
 }
 
 
 
 
-/* Showe.ejs changes image */
-.show-img{
-    height: 37vh;
+/* ===== NAVBAR DARK THEME ===== */
+.custom-navbar {
+    background: rgba(15, 23, 42, 0.85) !important; /* glass dark */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b !important;
 }
 
-
-
-
-/* REview */
-/* .review-card {
-    max-width: 700px;
-    margin: auto;
-    border: none;
-    border-radius: 15px;
-}
-
-.review-card textarea {
-    resize: none;
-    border-radius: 10px;
-}
-
-.review-card .form-range {
-    cursor: pointer;
-}
-
-.review-card button {
-    border-radius: 10px;
-    padding: 10px;
-    font-weight: 600;
+/* Brand icon */
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #14b8a6 !important;
     transition: 0.3s;
 }
 
-.review-card button:hover {
-    transform: translateY(-2px);
-} */
-
-/* EXTRA */
-/* Listing Card */
-
-
-/* Listing Image */
-.show-img {
-    height: 450px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
+.navbar-brand:hover {
+    transform: rotate(10deg);
 }
 
-/* Listing Card */
-.listing-card {
-    border: none;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 3rem;
-}
-
-.listing-card .card-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-.listing-card .card-text {
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Review Card */
-.review-card {
-    width: 65vw;
-    margin: auto;
-    border: none;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.review-card h4 {
-    font-weight: 600;
-    color: #222;
-}
-
-/* Form Controls */
-.review-card textarea {
-    resize: none;
+/* Nav links */
+.navbar-nav .nav-link {
+    color: #cbd5e1 !important;
+    margin: 0 6px;
+    font-weight: 500;
+    transition: 0.3s;
     border-radius: 8px;
+    padding: 6px 10px;
 }
 
-.review-card textarea:focus,
-.review-card input:focus {
-    box-shadow: none;
-    border-color: #212529;
+.navbar-nav .nav-link:hover {
+    color: #14b8a6 !important;
+    background-color: rgba(20, 184, 166, 0.1);
 }
 
-/* Range Slider */
-.form-range {
+/* Active feel (optional if you add active class) */
+.navbar-nav .nav-link.active {
+    color: #14b8a6 !important;
+}
+
+/* Right side spacing */
+.ms-auto {
+    gap: 10px;
+}
+
+/* Login/Signup buttons */
+.navbar-nav .nav-link[href="/login"],
+.navbar-nav .nav-link[href="/signup"] {
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+.navbar-nav .nav-link[href="/login"]:hover,
+.navbar-nav .nav-link[href="/signup"]:hover {
+    border-color: #14b8a6;
+}
+
+/* Avatar circle */
+.iconik {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #14b8a6;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Dropdown button */
+.dropdown-toggle {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    color: #e2e8f0 !important;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.dropdown-toggle:hover {
+    border-color: #14b8a6 !important;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+}
+
+.dropdown-item {
+    color: #cbd5e1;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(20, 184, 166, 0.1);
+    color: #14b8a6;
+}
+
+/* Logout highlight */
+.dropdown-item.text-danger {
+    color: #f87171 !important;
+}
+
+.dropdown-item.text-danger:hover {
+    background-color: rgba(174, 36, 36, 0.1);
+}
+/* --------------------------------------------------------------------------------------4 */
+
+
+/* -----------------------------------------------------------------------------------
+ */
+
+.custom-navbar {
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b !important;
+    
+    /* animation */
+    animation: navbarSlide 0.6s ease-out;
+}
+
+@keyframes navbarSlide {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* --------------------------------- */
+
+/* =========================
+   NAVBAR GLASS + FADE IN
+========================= */
+.custom-navbar {
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b !important;
+
+    /* animation */
+    animation: navSlideDown 0.5s ease-out;
+    transition: all 0.3s ease;
+}
+
+/* navbar entry animation */
+@keyframes navSlideDown {
+    from {
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   BRAND ANIMATION
+========================= */
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #14b8a6 !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: rotate(12deg) scale(1.1);
+}
+
+/* subtle glow pulse */
+@keyframes brandGlow {
+    0%, 100% {
+        text-shadow: 0 0 0px #14b8a6;
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+    }
+}
+
+.navbar-brand:hover {
+    animation: brandGlow 1s ease-in-out infinite;
+}
+
+/* =========================
+   NAV LINKS (SMOOTH LIFT)
+========================= */
+.navbar-nav .nav-link {
+    color: #cbd5e1 !important;
+    margin: 0 6px;
+    font-weight: 500;
+
+    border-radius: 8px;
+    padding: 6px 10px;
+
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+/* hover lift effect */
+.navbar-nav .nav-link:hover {
+    color: #14b8a6 !important;
+    background-color: rgba(20, 184, 166, 0.1);
+    transform: translateY(-2px);
+}
+
+/* underline animation */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 2px;
+    width: 0%;
+    height: 2px;
+    background: #14b8a6;
+    transition: 0.3s ease;
+    border-radius: 10px;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 70%;
+}
+
+/* =========================
+   LOGIN / SIGNUP BUTTONS
+========================= */
+.navbar-nav .nav-link[href="/login"],
+.navbar-nav .nav-link[href="/signup"] {
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 5px 12px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link[href="/login"]:hover,
+.navbar-nav .nav-link[href="/signup"]:hover {
+    border-color: #14b8a6;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   AVATAR (PULSE GLOW)
+========================= */
+.iconik {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #14b8a6;
+    color: #0f172a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+.iconik:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(20, 184, 166, 0.4);
+}
+
+/* =========================
+   DROPDOWN SMOOTH OPEN
+========================= */
+.dropdown-menu {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+
+    animation: dropdownFade 0.2s ease-out;
+    transform-origin: top;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: scaleY(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+/* =========================
+   RIGHT SIDE SPACING
+========================= */
+.ms-auto {
+    gap: 10px;
+}
+
+
+
+
+/* ---------------------------------- */
+
+
+/* 7777777777777777777777777777777777777777777777777777777777777777 */
+
+/* =========================
+   DROPDOWN WRAPPER BUTTON
+========================= */
+.dropdown-toggle {
+    background: rgba(30, 41, 59, 0.6) !important;
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
+
+    color: #e2e8f0 !important;
+
+    border-radius: 12px;
+    padding: 6px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: all 0.25s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* hover lift */
+.dropdown-toggle:hover {
+    transform: translateY(-2px);
+    border-color: rgba(20, 184, 166, 0.5) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* focus clean */
+.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+
+/* =========================
+   AVATAR (GLOW + MICRO ANIMATION)
+========================= */
+.iconik {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+    color: #0f172a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover .iconik {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(20, 184, 166, 0.4);
+}
+
+/* =========================
+   DROPDOWN MENU (GLASS EFFECT)
+========================= */
+.dropdown-menu {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 14px;
+
+    padding: 8px;
+    margin-top: 10px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+    transform-origin: top;
+    animation: dropdownPop 0.2s ease-out;
+}
+
+/* dropdown open animation */
+@keyframes dropdownPop {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* =========================
+   DROPDOWN ITEMS
+========================= */
+.dropdown-item {
+    color: #cbd5e1;
+    padding: 10px 12px;
+    border-radius: 10px;
+
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+/* hover effect */
+.dropdown-item:hover {
+    background: rgba(20, 184, 166, 0.08);
+    color: #14b8a6;
+    transform: translateX(4px);
+}
+
+/* =========================
+   DIVIDER (CLEAN STYLE)
+========================= */
+.dropdown-divider {
+    border-color: rgba(148, 163, 184, 0.2);
+    margin: 6px 0;
+}
+
+/* =========================
+   LOGOUT (DANGER STYLE)
+========================= */
+.dropdown-item.text-danger {
+    color: #f87171 !important;
+}
+
+.dropdown-item.text-danger:hover {
+    background: rgba(248, 113, 113, 0.1);
+    color: #dd2222 !important;
+}
+
+/* =========================
+   MICRO INTERACTION (MENU OPEN FEEL)
+========================= */
+.dropdown-menu.show {
+    animation: dropdownPop 0.2s ease-out;
+}
+
+/* 88888888888888888888888888888888888888888888888888888888888888888888 */
+
+/* ===== FOOTER BASE ===== */
+.custom-footer {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #cbd5e1;
+    padding: 50px 0 20px;
+    border-top: 1px solid #1e293b;
+    position: relative;
+    overflow: hidden;
+
+    animation: footerFade 0.8s ease-in-out;
+}
+
+/* subtle animated glow background */
+.custom-footer::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(20,184,166,0.08), transparent 60%);
+    animation: floatGlow 8s linear infinite;
+}
+
+/* ===== BRAND ===== */
+.footer-brand {
+    color: #14b8a6;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+}
+
+.footer-text {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ===== TITLES ===== */
+.footer-title {
+    color: #e2e8f0;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.footer-title::after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: #14b8a6;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+}
+
+/* ===== LINKS ===== */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 8px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* hover underline animation */
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 1.5px;
+    background: #14b8a6;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #14b8a6;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    font-size: 1.3rem;
+    color: #94a3b8;
+}
+
+.footer-socials i {
+    transition: 0.3s ease;
     cursor: pointer;
 }
 
-/* Buttons */
-.btn-dark {
-    border-radius: 8px;
-    padding: 10px;
+.footer-socials i:hover {
+    color: #14b8a6;
+    transform: translateY(-4px) scale(1.2);
+}
+
+/* ===== BOTTOM ===== */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: #94a3b8;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #14b8a6;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes footerFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== MAP CARD ===== */
+.map-card {
+    overflow: hidden;
+}
+
+#map {
+    height: 350px;
+    border-radius: 12px;
+}
+
+
+.showpagetile{
+  color: white;
+}
+
+
+
+
+/* =========================
+   GLOBAL SHOW PAGE STYLE
+========================= */
+
+
+
+body {
+    background: linear-gradient(120deg,
+        #132a0f,
+        #1e293b,
+        #0ea5e9,
+        #134e4a);
+    background-size: 300% 300%;
+    animation: bgMove 10s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #0f172a;
+}
+
+/* glowing blobs */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+    z-index: -1;
+}
+
+body::before {
+    background: #14b8a6;
+    top: 10%;
+    left: 10%;
+    animation: float1 10s ease-in-out infinite;
+}
+
+body::after {
+    background: #3b82f6;
+    bottom: 10%;
+    right: 10%;
+    animation: float2 12s ease-in-out infinite;
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(40px, 60px); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-50px, -40px); }
+}
+
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.show-page-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    animation: pageFade 0.6s ease-in-out;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   HERO CARD (MAIN LISTING)
+========================= */
+.listing-hero-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    margin-bottom: 25px;
+    /* max-width:80vw; */
+}
+
+/* IMAGE */
+.listing-hero-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.listing-hero-img:hover {
+    transform: scale(1.03);
+}
+
+/* BODY */
+.listing-hero-body {
+    padding: 20px;
+}
+
+.listing-meta {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.listing-meta span {
+    color: #14b8a6;
+    font-weight: bold;
+}
+
+.listing-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f1f5f9;
+    margin-top: 10px;
+}
+
+.listing-description {
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+/* =========================
+   INFO LIST
+========================= */
+.listing-info-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 20px;
+    border-top: 1px solid #334155;
+}
+
+.listing-info-item {
+    background: #0f172a;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #1e293b;
+}
+
+.price-value {
+    color: #14b8a6;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+.listing-actions {
+    display: flex;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid #334155;
+}
+
+.action-btn {
+    transition: 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   REVIEW SECTION
+========================= */
+.review-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+/* SECTION TITLE */
+.section-title {
+    color: #14b8a6;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   REVIEW FORM
+========================= */
+.review-form label {
+    color: #cbd5e1;
     font-weight: 500;
 }
 
-.btn-outline-primary,
-.btn-danger {
-    min-width: 100px;
-    border-radius: 8px;
+.rating-slider {
+    width: 100%;
+    accent-color: #14b8a6;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .listing-card,
-    .review-card {
-        width: 95vw !important;
-    }
-
-    .show-img {
-        height: 250px;
-    }
-
-    .listing-card .card-title {
-        font-size: 1.4rem;
-    }
+.rating-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 0.8rem;
+    margin-top: 5px;
 }
 
-/* REVIEW SECTIOm */
-
-.review-title{
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 3rem 0;
-    color: #222;
+.review-input {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #e2e8f0;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.reviews-container{
-    max-width: 850px;
-    margin: auto;
+.review-input:focus {
+    border-color: #14b8a6;
+    outline: none;
 }
 
-.review-item{
-    margin-bottom: 3rem;
+/* =========================
+   REVIEW ITEMS
+========================= */
+.review-item {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    transition: 0.3s ease;
 }
 
-.review-user-section{
+.review-item:hover {
+    transform: translateX(5px);
+}
+
+/* HEADER */
+.review-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 12px;
+    gap: 12px;
 }
 
-.review-avatar{
-    width: 50px;
-    height: 50px;
+/* AVATAR */
+.avatar-circle {
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    background: #f2f2f2;
+    background: #14b8a6;
+    color: #0f172a;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: #444;
+    justify-content: center;
+    font-weight: bold;
 }
 
-.review-user-name{
+/* USER INFO */
+.review-user-info h5 {
     margin: 0;
-    font-size: 1rem;
+    color: #e2e8f0;
+}
+
+.review-user-info small {
+    color: #64748b;
+}
+
+/* STARS */
+.review-rating {
+    margin-top: 8px;
+    color: #fbbf24;
+    letter-spacing: 2px;
+}
+
+/* TEXT */
+.review-text {
+    margin-top: 8px;
+    color: #94a3b8;
+}
+
+/* DELETE BUTTON */
+.delete-review-btn {
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.delete-review-btn:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   MAP SECTION
+========================= */
+.map-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.map-location-text {
+    color: #94a3b8;
+}
+
+.map-box {
+    height: 380px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    transition: 0.3s ease;
+}
+
+.map-box:hover {
+    transform: scale(1.01);
+}
+
+.map-warning {
+    color: #f87171;
+    background: rgba(248,113,113,0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+
+/* =========================
+   GLOBAL BACKGROUND
+========================= */
+/* body {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e2e8f0;
+} */
+
+/* =========================
+   EDIT WRAPPER CARD
+========================= */
+.edit-card {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: fadeUp 0.6s ease-in-out;
+}
+
+/* animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* =========================
+   FORM TITLE
+========================= */
+.editform {
+    color: #14b8a6 !important;
     font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.review-user-info{
-    margin: 0;
-    color: #717171;
-    font-size: 0.9rem;
+/* =========================
+   LABELS
+========================= */
+.titletag {
+    color: #cbd5e1;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
-.review-meta{
-    font-size: 0.9rem;
+/* =========================
+   INPUT FIELDS
+========================= */
+.form-control {
+    background-color: #0f172a !important;
+    border: 1px solid #334155 !important;
+    color: #e2e8f0 !important;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #14b8a6 !important;
+    box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+}
+
+/* textarea fix */
+textarea.form-control {
+    resize: none;
+    min-height: 100px;
+}
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+.edit-card img {
+    border-radius: 12px;
+    border: 1px solid #334155;
+    transition: 0.3s ease;
+}
+
+.edit-card img:hover {
+    transform: scale(1.02);
+}
+
+/* =========================
+   FILE INPUT
+========================= */
+input[type="file"] {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* =========================
+   GRID SPACING
+========================= */
+.row {
     margin-bottom: 10px;
-    color: #222;
 }
 
-.review-date{
-    color: #717171;
+/* =========================
+   BUTTON
+========================= */
+.btn-dark {
+    background: #14b8a6 !important;
+    border: none !important;
+    color: #0f172a !important;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease;
 }
 
-.review-comment{
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #333;
-    max-width: 90%;
+.btn-dark:hover {
+    background: #0d9488 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(20, 184, 166, 0.3);
 }
 
-/* Responsive */
-@media(max-width:768px){
+/* =========================
+   VALIDATION TEXT
+========================= */
+.invalid-feedback {
+    color: #f87171;
+}
 
-    .review-title{
-        font-size: 1.5rem;
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .edit-card {
+        margin: 20px;
+        padding: 15px;
+    }
+}
+
+
+
+
+
+/* =========================
+   MAIN FORM CARD
+========================= */
+.listing-form-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: fadeUp 0.6s ease-in-out;
+}
+
+/* entry animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   FORM TITLE
+========================= */
+.form-title {
+    color: #14b8a6;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   LABELS
+========================= */
+.form-label {
+    color: #cbd5e1;
+    font-weight: 500;
+    
+}
+
+/* =========================
+   INPUT FIELDS
+========================= */
+.form-control {
+    background-color: #0f172a !important;
+    border: 1px solid #334155 !important;
+    color: #c0c6cd !important;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    
+}
+
+/* focus effect */
+.form-control:focus {
+    border-color: #14b8a6 !important;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+/* textarea */
+textarea.form-control {
+    /* resize:auto; */
+    min-height: 120px;
+}
+
+/* =========================
+   FILE INPUT
+========================= */
+input[type="file"] {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* =========================
+   INVALID FEEDBACK
+========================= */
+.invalid-feedback {
+    color: #f87171;
+}
+
+/* =========================
+   BUTTONS (MODERN STYLE)
+========================= */
+.btn-dark {
+    background: #14b8a6 !important;
+    border: none !important;
+    color: #0f172a !important;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-dark:hover {
+    background: #0d9488 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(20, 184, 166, 0.3);
+}
+
+/* outline buttons */
+.btn-outline-secondary {
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+.btn-outline-secondary:hover {
+    background: #334155;
+    color: #fff;
+}
+
+.btn-outline-danger:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CARD HOVER EFFECT
+========================= */
+.listing-form-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+    .listing-form-card {
+        padding: 15px;
     }
 
-    .review-comment{
-        max-width: 100%;
+    .d-flex.gap-3 {
+        justify-content: center;
     }
 }
+
+
+
+/* =========================
+   MAIN FORM CARD (SAAS STYLE)
+========================= */
+.listing-form-card {
+    background: #0b1220;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    padding: 24px;
+
+    animation: fadeUp 0.5s ease-out;
+}
+
+/* entry animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   FORM TITLE (CLEAN)
+========================= */
+.form-title {
+    color: #e2e8f0;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   LABELS
+========================= */
+.form-label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+/* =========================
+   INPUT FIELDS (SAAS STYLE)
+========================= */
+.form-control {
+    background: #0f172a !important;
+    border: 1px solid #1e293b !important;
+    color: #e2e8f0 !important;
+
+    border-radius: 10px;
+    padding: 10px 12px;
+
+    transition: all 0.2s ease;
+}
+
+/* focus = subtle blue ring (SAAS standard) */
+.form-control:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    outline: none;
+}
+
+/* textarea */
+textarea.form-control {
+    min-height: 120px;
+}
+
+/* =========================
+   FILE INPUT (CLEAN)
+========================= */
+input[type="file"] {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    color: #94a3b8;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* =========================
+   INVALID FEEDBACK
+========================= */
+.invalid-feedback {
+    color: #f87171;
+    font-size: 0.85rem;
+}
+
+/* =========================
+   PRIMARY BUTTON (SAAS BLUE)
+========================= */
+.btn-dark {
+    background: #3b82f6 !important;
+    border: none !important;
+    color: white !important;
+
+    font-weight: 500;
+    border-radius: 10px;
+
+    transition: all 0.2s ease;
+}
+
+.btn-dark:hover {
+    background: #2563eb !important;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   OUTLINE BUTTONS
+========================= */
+.btn-outline-secondary {
+    border: 1px solid #334155;
+    color: #cbd5e1;
+}
+
+.btn-outline-secondary:hover {
+    background: #1e293b;
+    color: #fff;
+}
+
+.btn-outline-danger {
+    border-radius: 10px;
+}
+
+/* =========================
+   CARD HOVER (VERY SUBTLE)
+========================= */
+.listing-form-card {
+    transition: all 0.2s ease;
+}
+
+.listing-form-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   SPACING FIX
+========================= */
+.row {
+    row-gap: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .listing-form-card {
+        padding: 16px;
+    }
+}
+
+
+.search-inp::placeholder {
+    color: rgba(255, 255, 255, 0.59);
+    font-weight: 300;
+    opacity: 1; /* Makes the color fully visible */
+}
+
+
+

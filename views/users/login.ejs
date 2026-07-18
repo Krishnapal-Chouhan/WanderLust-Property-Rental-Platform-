@@ -1,0 +1,219 @@
+<% layout("/layouts/boilerplate")%>
+    <!-- <div class="row">
+        <div class="col-6 offset-3">
+            <h1>Login on WanderLust</h1>
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+                 <div class="mb-3">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username"  class="form-control"
+                            required>
+                        <div class="valid-feedback">Look Nice</div>
+                         <div class="invalid-feedback">Required</div>
+                       
+                    </div>
+                   
+
+                    <div class="mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password"  class="form-control"
+                            required>
+                        <div class="valid-feedback">Look Nice</div>
+                         <div class="invalid-feedback">Required</div>
+                        
+                        
+                       
+                    </div>
+
+                    <button class="btn btn-success">Sign Up</button>
+            </form>
+
+            </div>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- NEW STYLE -->
+     <% layout("/layouts/boilerplate")%>
+
+        <style>
+            body {
+                /* background: linear-gradient(135deg,#667eea,#764ba2); */
+                /* background: linear-gradient(135deg,
+                        #0f172a,
+                        #1e293b,
+                        #134e4a); */
+                /* col -02 */
+                /* background: linear-gradient(135deg,
+                        #fff7ed,
+                        #ffedd5,
+                        #fce7f3); */
+
+                         background: linear-gradient(
+            135deg,
+            #0F172A 0%,
+            #1E293B 50%,
+            #14B8A6 100%
+        );
+
+                        
+                min-height: 100vh;
+            }
+
+            .login-container {
+                min-height: 85vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .login-card {
+                width: 100%;
+                max-width: 450px;
+                padding: 2rem;
+                border-radius: 25px;
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                animation: fadeInUp 0.8s ease;
+            }
+
+            .login-title {
+                text-align: center;
+               /* color: #134E4A; */
+                color:#fff;
+                 /* color:rgba(255,255,255,.8); */
+                font-weight: 700;
+                margin-bottom: 1.8rem;
+                letter-spacing: 1px;
+            }
+
+            .form-label {
+                  color:#fff;
+                font-weight: 500;
+            }
+
+            .form-control {
+                border: none;
+                border-radius: 12px;
+                padding: 12px;
+                background: rgba(255, 255, 255, 0.85);
+                transition: all 0.3s ease;
+            }
+
+            .form-control:focus {
+                transform: translateY(-2px);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+
+            .btn-login {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 12px;
+                background: linear-gradient(135deg, #ff9966, #ff5e62);
+                color: white;
+                font-size: 1.1rem;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .btn-login:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(255, 94, 98, 0.4);
+            }
+
+            .welcome-text {
+                text-align: center;
+             color:#FBBF24;
+                margin-bottom: 20px;
+                opacity: 0.9;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .floating {
+                animation: floating 3s ease-in-out infinite;
+            }
+
+            @keyframes floating {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+ 
+        </style>
+
+        <div class="container login-container">
+
+            <div class="login-card floating">
+
+                <h1 class="login-title">🏡 WanderLust</h1>
+
+                <p class="welcome-text">
+                    Welcome Back! Sign in to continue your journey.
+                </p>
+
+                <form action="/login" method="POST" class="needs-validation" novalidate>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">
+                            Username
+                        </label>
+
+                        <input type="text" id="username" name="username" class="form-control" required>
+
+                        <div class="invalid-feedback">
+                            Please enter username
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password" class="form-label">
+                            Password
+                        </label>
+
+                        <input type="password" id="password" name="password" class="form-control" required>
+
+                        <div class="invalid-feedback">
+                            Please enter password
+                        </div>
+                    </div>
+
+                    <button class="btn-login">
+                        Login
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div> 

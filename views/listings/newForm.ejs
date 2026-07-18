@@ -1,4 +1,4 @@
-<% layout("/layouts/boilerplate")%>
+<!-- <% layout("/layouts/boilerplate")%>
     <div class="row">
         <div class="col-8 offset-2">
 
@@ -38,7 +38,7 @@
                             <label for="price">Price :</label>
                             <input id="price" name="price" placeholder="Enter Price" class="form-control" required>
                             <div class="invalid-feedback">Enter Valid Price</div>
-                            <!-- type="number" -->
+                      
 
                         </div>
 
@@ -48,7 +48,7 @@
                                 class="form-control" required>
                             <div class="invalid-feedback"> Please provide valid Location</div>
 
-                            <!-- <br> -->
+                        
                         </div>
                     </div>
 
@@ -82,6 +82,141 @@
             </body>
 
             </html>
+        </div>
+
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container py-6  .glass-card">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9 col-md-10">
+
+                <div class="card border-0 shadow-lg rounded-4 p-4 listing-form-card">
+
+                    <h2 class="text-center fw-bold mb-2 form-title">
+                        Create a New Listing
+                    </h2>
+
+                    <form method="POST" action="/listings/new" novalidate class="needs-validation" enctype="multipart/form-data">
+
+                        <!-- Title -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label editformtag"  >
+                                Property Title
+                            </label>
+
+                            <input type="text" id="title" name="title" placeholder="Enter Property Title" 
+                                class="form-control form-control-lg editformtag" required>
+
+                            <div class="invalid-feedback" >
+                                Please enter a title.
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="descrip" class="form-label">
+                                Description
+                            </label>
+
+                            <textarea id="descrip" name="description" rows="2" placeholder="Describe your property..."
+                                class="form-control" required></textarea>
+
+                            <div class="invalid-feedback">
+                                Please enter a description.
+                            </div>
+                        </div>
+
+                        <!-- Image URL -->
+                        <div class="mb-3">
+                            <label for="image" class="form-label">
+                                Upload Listing Image
+                            </label>
+
+                            <input type="file" id="image" name="listing-image"  class="form-control" required>
+                        </div>
+
+                        <!-- Price + Location -->
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <label for="price" class="form-label">
+                                    Price (₹)
+                                </label>
+
+                                <input type="number" id="price" name="price" placeholder="Enter Price"
+                                    class="form-control" required>
+
+                                <div class="invalid-feedback">
+                                    Enter a valid price.
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+                                <label for="location" class="form-label">
+                                    Location
+                                </label>
+
+                                <input type="text" id="location" name="location" placeholder="Enter Location"
+                                    class="form-control" required>
+
+                                <div class="invalid-feedback">
+                                    Please enter a location.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Country -->
+                        <div class="mb-4">
+                            <label for="country" class="form-label">
+                                Country
+                            </label>
+
+                            <input type="text" id="country" name="country" placeholder="Enter Country"
+                                class="form-control" required>
+
+                            <div class="invalid-feedback">
+                                Please enter a country.
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-3 justify-content-end flex-wrap mt-4">
+
+                            <a href="/listings" class="btn btn-outline-secondary rounded-pill px-4">
+                                Back
+                            </a>
+
+                            <button type="reset" class="btn btn-outline-danger rounded-pill px-4">
+                                Reset
+                            </button>
+
+                            <button type="submit" class="btn btn-dark rounded-pill px-4">
+                                Create Listing
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>

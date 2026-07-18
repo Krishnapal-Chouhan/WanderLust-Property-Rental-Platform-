@@ -1,183 +1,227 @@
 <% layout("/layouts/boilerplate") %>
 
-    <div>
-        <h3 class="text-center">Listing Details</h3>
-    </div>
+<div class="show-page-container">
 
+    <!-- ===== HERO SECTION ===== -->
+    <div class="listing-hero-card">
 
+        <img
+            src="<%= list.image.url || 'https://images.pexels.com/photos/29511872/pexels-photo-29511872.jpeg' %>"
+            class="listing-hero-img"
+            alt="listing-image"
+        >
 
+        <div class="listing-hero-body">
 
-    <body>
-        <div class="card mx-auto" style="width:65vw;">
-            <img src="<%= list.image.url || 'https://images.pexels.com/photos/29511872/pexels-photo-29511872.jpeg' %>"
-                class="card-img-top show-img" alt="listing-image">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <%=list.title%>
-                </h5>
-                <p class="card-text">
-                    <%=list.description%>
+            <div class="listing-meta">
+                <p class="listing-host">
+                    Hosted by
+                    <span>
+                        <%= list.owner ? list.owner.username : "WanderLust Bot" %>
+                    </span>
                 </p>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Price : ₹<%= list.price?.toLocaleString("en-IN") || "N/A" %> /night</li>
-                <li class="list-group-item">
-                    <%=list.location%>
-                </li>
-                <li class="list-group-item">
-                    <%=list.country%>
-                </li>
-            </ul>
-            <div class="card-body d-flex justify-content-between align-items-center">
 
-                <!-- Edit -->
-                <a href="/listings/<%= list._id %>/edit" class="btn btn-outline-primary btn-sm">
-                    Edit
-                </a>
+            <h1 class="listing-title">
+                <%= list.title %>
+            </h1>
 
-                <!-- Delete -->
-                <form method="POST" action="/listings/<%= list._id %>?_method=DELETE" style="display:inline;"
-                    onsubmit="return confirm('Are you sure you want to delete this listing?');">
-
-                    <button class="btn btn-danger btn-sm" type="submit">
-                        Delete
-                    </button>
-                </form>
-
-            </div>
-
-
-            <!-- <div class="mb-3">
-
-                <h4>Leave A Review</h4>
-                <form action="/listings/<%= list._id %>/reviews" method="POST" novalidate class="needs-validation">
-                    <div class="mb-3 mt-3">
-                        <label for="rating" class="form-label">Rating</label>
-                        <input type="range" min="1" max="5" , id="rating" , name="review[rating]" class="form-range">
-
-                    </div>
-                    <div class="mb-3 mt-3">
-                        <label for="comment" class="form-label">Comment: </label>
-                        <textarea name="review[comment]" id="comment" rows="7" cols="28"
-                            class="form-control" required></textarea>
-                            <div class="invalid-feedback">Please Add Some Comment for Review</div>
-                    </div>
-                    <button class="btn btn-outline-dark ">
-                        Submit
-                    </button>
-
-
-
-                </form>
-            </div> -->
-
-
-
+            <p class="listing-description">
+                <%= list.description %>
+            </p>
 
         </div>
-        <div class="card shadow-sm p-4 mt-4 review-card">
-            <h4 class="mb-4 text-center">Leave a Review</h4>
 
-            <form action="/listings/<%= list._id %>/reviews" method="POST" novalidate class="needs-validation">
+        <ul class="listing-info-list">
 
-                <div class="mb-4">
-                    <label for="rating" class="form-label fw-bold">Rating</label>
+            <li class="listing-info-item price">
+                <span class="price-value">
+                    ₹<%= list.price?.toLocaleString("en-IN") || "N/A" %>
+                </span>
+                <span class="price-label">/ night</span>
+            </li>
 
-                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+            <li class="listing-info-item">
+                📍 <strong><%= list.location %></strong>
+            </li>
 
-                    <div class="d-flex justify-content-between">
-                        <small>1 ⭐</small>
-                        <small>2 ⭐</small>
-                        <small>3 ⭐</small>
-                        <small>4 ⭐</small>
-                        <small>5 ⭐</small>
-                    </div>
-                </div>
+            <li class="listing-info-item">
+                🌍 <strong><%= list.country %></strong>
+            </li>
 
-                <div class="mb-3">
-                    <label for="comment" class="form-label fw-bold">
-                        Comment
-                    </label>
+        </ul>
 
-                    <textarea name="review[comment]" id="comment" rows="4" class="form-control"
-                        placeholder="Share your experience..." required></textarea>
+        <% if(currUser && list.owner && list.owner._id.equals(currUser._id)){ %>
 
-                    <div class="invalid-feedback">
-                        Please add a comment for your review.
-                    </div>
-                </div>
+        <div class="listing-actions">
 
-                <button class="btn btn-dark w-100">
-                    Submit Review
+            <a href="/listings/<%= list._id %>/edit" class="btn btn-outline-primary action-btn">
+                Edit Listing
+            </a>
+
+            <form method="POST"
+                  action="/listings/<%= list._id %>?_method=DELETE"
+                  onsubmit="return confirm('Delete this listing?');">
+
+                <button class="btn btn-danger action-btn">
+                    Delete Listing
                 </button>
 
             </form>
-            <hr>
+
+        </div>
+
+        <% } %>
+
+    </div>
 
 
+    <!-- ===== REVIEW SECTION ===== -->
+    <div class="review-card">
 
-            <h3 class="review-title">
-                ⭐ 5.0 · <%= list.reviews.length %> Reviews
-            </h3>
+        <% if(currUser){ %>
 
-            <div class="reviews-container">
+        <h2 class="section-title">Leave a Review</h2>
 
-                <% for(let review of list.reviews){ %>
+        <form action="/listings/<%= list._id %>/reviews"
+              method="POST"
+              class="review-form">
 
-                    <div class="review-item">
+            <div class="form-group">
 
-                        <div class="review-user-section">
-                            <div class="review-avatar">
-                                <%= "G" %>
-                            </div>
+                <label>Rating</label>
 
+                <input type="range"
+                       min="1"
+                       max="5"
+                       name="review[rating]"
+                       class="rating-slider">
 
-
-                            <div>
-                                <h5 class="review-user-name">Guest User</h5>
-                                <p class="review-user-info">Recently reviewed</p>
-                            </div>
-                        </div>
-
-
-                        <div class="review-meta">
-                            <% for(let i=0; i<review.rating; i++){ %>
-                                ⭐
-                                <% } %>
-                                    <span class="review-date"> · Recently</span>
-                        </div>
-
-                        <p class="review-comment">
-                            <%= review.comment %>
-                        </p>
-
-
-
-
-                    </div>
-
-                    <form action="/listings/<%= list._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button class="btn btn-sm btn-dark">
-                            Delete
-                        </button>
-                    </form>
-
-
-
-
-                    <hr>
-
-                    <% } %>
-
-
-
+                <div class="rating-labels">
+                    <span>1 ⭐</span>
+                    <span>2 ⭐</span>
+                    <span>3 ⭐</span>
+                    <span>4 ⭐</span>
+                    <span>5 ⭐</span>
+                </div>
 
             </div>
 
+            <div class="form-group">
+
+                <label>Comment</label>
+
+                <textarea name="review[comment]"
+                          rows="4"
+                          class="review-input"
+                          placeholder="Share your experience..."
+                          required></textarea>
+
+            </div>
+
+            <button class="btn btn-primary submit-review-btn">
+                Submit Review
+            </button>
+
+        </form>
+
+        <hr class="divider">
+
+        <% } %>
 
 
+        <% if(list.reviews.length > 0){ %>
+            <h3 class="section-title">
+                Reviews (<%= list.reviews.length %>)
+            </h3>
+        <% } %>
+
+
+        <% for(let review of list.reviews){ %>
+
+        <div class="review-item">
+
+            <div class="review-header">
+
+                <div class="review-avatar">
+                    <div class="avatar-circle">
+                        <%= review.author ? review.author.username.charAt(0).toUpperCase() : "G" %>
+                    </div>
+                </div>
+
+                <div class="review-user-info">
+
+                    <h5>
+                        <%= review.author ? review.author.username : "Guest User" %>
+                    </h5>
+
+                    <small>
+                        <%= new Date(review.createdAt).toLocaleString("en-IN", {
+                            timeZone: "Asia/Kolkata"
+                        }) %>
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="review-rating">
+                <% for(let i = 0; i < review.rating; i++){ %>
+                    ⭐
+                <% } %>
+            </div>
+
+            <p class="review-text">
+                <%= review.comment %>
+            </p>
+
+            <% if(currUser && ((list.owner && list.owner._id.equals(currUser._id)) ||
+                (review.author && review.author._id.equals(currUser._id)))){ %>
+
+                <form action="/listings/<%= list._id %>/reviews/<%= review._id %>?_method=DELETE"
+                      method="POST">
+
+                    <button class="btn btn-outline-danger btn-sm delete-review-btn">
+                        Delete Review
+                    </button>
+
+                </form>
+
+            <% } %>
 
         </div>
-    </body>
+
+        <% } %>
+
     </div>
+
+
+    <!-- ===== MAP SECTION ===== -->
+    <div class="map-card">
+
+        <h2 class="section-title">📍 Where you'll be</h2>
+
+        <p class="map-location-text">
+            <%= list.location %>, <%= list.country %>
+        </p>
+
+        <% if(list.geometry && list.geometry.coordinates && list.geometry.coordinates.length === 2){ %>
+
+            <div id="map"
+                 class="map-box"
+                 data-lat="<%= list.geometry.coordinates[1] %>"
+                 data-lng="<%= list.geometry.coordinates[0] %>"
+                 data-title="<%= list.title %>">
+            </div>
+
+        <% } else { %>
+
+            <div class="map-warning">
+                Location coordinates are not available for this listing.
+            </div>
+
+        <% } %>
+
+    </div>
+
+</div>

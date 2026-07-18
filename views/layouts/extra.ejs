@@ -16,3 +16,114 @@
 
 
                     // Extra info index page
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- CSS FILE -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom custom-navbar sticky-top">
+    <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+
+        <!-- Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- LEFT SIDE LINKS -->
+            <div class="navbar-nav">
+                <!-- <a class="nav-link" href="/listings">Home</a> -->
+                <a class="nav-link" href="/listings">Explore</a>
+                <!-- <a class="nav-link" href="/listings/new">Add Listing</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="#">More</a> -->
+            </div>
+
+            <div class="navbar-nav ms-aut">
+                 <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="navbar-nav ms-auto d-flex align-items-center gap-2">
+
+                 <a class="nav-link" href="/listings" style="font-weight: 800; color: aquamarine ; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Wanderlust</a>
+                <% if(!currUser){ %>
+                                   
+                    <a class="nav-link" href="/login"><b>Login</b></a>
+                    <a class="nav-link" href="/signup"><b>Signup</b></a>
+                <% } %>
+
+                <% if(currUser){ %>
+
+                    <!-- Logout -->
+                    <!-- <a class="nav-link" href="/logout">Logout</a> -->
+
+                    <!-- Profile Dropdown -->
+                    <div class="dropdown">
+
+                        <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <!-- Avatar -->
+                            <div class="iconik">
+                                <%= currUser?.username ? currUser.username.charAt(0).toUpperCase() : "G" %>
+                            </div>
+
+                            <span><%= currUser.username %></span>
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                            <li><a class="dropdown-item" href="/listings/new">Add Listing</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+                        </ul>
+
+                    </div>
+
+                <% } %>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+

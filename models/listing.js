@@ -6,50 +6,54 @@ const listingSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String,
 
+    description: String,
+
+    image: {
+        url: String,
+        filename: String
     },
-   image: {
-    url: {
-        type: String,
-        default: "https://images.pexels.com/photos/29511872/pexels-photo-29511872.jpeg"
-    },
-    filename: String
-},
+
     price: {
         type: Number,
         default: 0
-
-    },
-    location: {
-        type: String
-    },
-    country: {
-        type: String
     },
 
-    reviews : [{
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Review"
-    }]
+    location: String,
+    country: String,
 
-});
+    geometry: {
+        type: {
+            type: String,
+            enum: ["Point"],
+            default: "Point"
+        },
+        coordinates: {
+            type: [Number]
+           
+        }
+    },
 
-listingSchema.post("findOneAndDelete", async (listing) => {
-    console.log("Deleted Listing:", listing);
+    reviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Review"
+        }
+    ],
 
-    if (listing) {
-        let result = await Review.deleteMany({
-            _id: { $in: listing.reviews }
-        });
-
-        console.log("Deleted Reviews:", result);
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        // required: true
     }
 });
 
-const Listing = mongoose.model("Listing", listingSchema);
-module.exports = Listing;
+listingSchema.post("findOneAndDelete", async (listing) => {
+    if (listing) {
+        await Review.deleteMany({
+            _id: { $in: listing.reviews }
+        });
+    }
+});
 
-
-//  default :"https://www.pexels.com/photo/sunset-over-university-of-wroclaw-poland-29243214/"
+module.exports = mongoose.model("Listing", listingSchema);
