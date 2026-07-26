@@ -1,113 +1,147 @@
-# WanderLust - Property Rental Platform
+# 🏡 WanderLust - Property Rental Platform
 
-WanderLust is a full-stack Airbnb-inspired property rental platform that allows users to explore, create, update, and manage property listings. The application provides secure authentication, image uploads, interactive maps, and review management for a seamless booking experience.
+> **A full-stack Airbnb-inspired property rental platform built with Node.js, Express.js, MongoDB, and EJS.**
+
+WanderLust is a modern property rental web application that enables users to discover, create, update, and manage rental listings. The platform features secure authentication, image uploads, interactive maps, reviews & ratings, and a responsive user interface, providing a seamless booking and property management experience.
+
+---
 
 ## 🚀 Features
 
-* User Authentication & Authorization
-* Create, Read, Update, and Delete (CRUD) Listings
-* Property Reviews and Ratings
-* Secure Route Protection using Middleware
-* Image Upload & Storage with Cloudinary
-* Interactive Location Maps using Mapbox
-* Session Management & Flash Messages
-* RESTful Routing
+### 👤 User Authentication
+
+* Secure User Registration & Login
+* Passport.js Authentication
+* Session Management
+* Flash Messages
+
+### 🏠 Property Management
+
+* Create Property Listings
+* View All Listings
+* Update Existing Listings
+* Delete Listings
+* Upload Property Images
+
+### 🔍 Search Functionality
+
+Search listings by:
+
+* Property Title
+* Location
+* Country
+* Description
+
+### ⭐ Reviews & Ratings
+
+* Add Reviews
+* Delete Reviews
+* Rating System
+
+### 🗺️ Maps Integration
+
+* Interactive Maps using Mapbox
+* Property Location Display
+
+### ☁️ Cloud Storage
+
+* Cloudinary Image Upload
+* Secure Image Storage
+
+### 🛡️ Security & Validation
+
+* Route Protection
+* Authorization Middleware
+* Client-side Validation
+* Server-side Validation (Joi)
+* Error Handling
+
+### 🏗️ Architecture
+
 * MVC Architecture
-* Server-side Validation & Error Handling
+* RESTful Routing
+* Responsive Bootstrap UI
 
-## 🛠️ Tech Stack
+---
 
-### Frontend
+# 🛠️ Tech Stack
 
-* HTML5
-* CSS3
-* EJS
-* Bootstrap
+| Category              | Technologies                                    |
+| --------------------- | ----------------------------------------------- |
+| **Frontend**          | HTML5, CSS3, Bootstrap 5, EJS, JavaScript (ES6) |
+| **Backend**           | Node.js, Express.js                             |
+| **Database**          | MongoDB, Mongoose                               |
+| **Authentication**    | Passport.js, Express Session, Connect Flash     |
+| **Cloud Services**    | Cloudinary, Mapbox                              |
+| **Development Tools** | Git, GitHub, VS Code                            |
 
-### Backend
+---
 
-* Node.js
-* Express.js
+# 📂 Project Structure
 
-### Database
-
-* MongoDB
-* Mongoose
-
-### Authentication & Security
-
-* Passport.js
-* Express Session
-* Connect Flash
-
-### Third-Party Services
-
-* Cloudinary
-* Mapbox
-
-### Development Tools
-
-* Git
-* GitHub
-* VS Code
-
-## 📂 Project Structure
-
-```bash
+```text
 WanderLust/
 │
+├── controllers/
 ├── models/
 ├── routes/
 ├── views/
 │   ├── layouts/
 │   ├── listings/
+│   ├── users/
 │   └── includes/
 ├── public/
 │   ├── css/
-│   └── javascript/
+│   ├── js/
+│   └── images/
 ├── utils/
-├── app.js
+├── middleware.js
+├── cloudConfig.js
 ├── schema.js
-└── package.json
+├── app.js
+├── package.json
+└── .env
 ```
 
-## ⚙️ Installation
+---
 
-### Clone Repository
+# ⚙️ Installation
+
+## 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/Krishnapal-Chouhan/WanderLust-Property-Rental-Platform-.git
 ```
 
-### Navigate to Project
+## 2️⃣ Navigate to Project
 
 ```bash
 cd WanderLust-Property-Rental-Platform-
 ```
 
-### Install Dependencies
+## 3️⃣ Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Configure Environment Variables
+## 4️⃣ Configure Environment Variables
 
-Create a `.env` file and add:
+Create a `.env` file and add the following:
 
 ```env
 CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_KEY=your_key
-CLOUDINARY_SECRET=your_secret
+CLOUDINARY_KEY=your_cloudinary_key
+CLOUDINARY_SECRET=your_cloudinary_secret
 
 MAPBOX_TOKEN=your_mapbox_token
 
 ATLASDB_URL=your_mongodb_connection_string
 
-SECRET=session_secret
+SECRET=your_session_secret
 ```
 
-### Run Application
+## 5️⃣ Run the Application
 
 ```bash
 node app.js
@@ -119,46 +153,134 @@ or
 nodemon app.js
 ```
 
-## 🎯 Key Learning Outcomes
+The application will run on:
 
-* Building scalable backend applications using Express.js
-* Implementing Authentication & Authorization
-* Designing RESTful APIs
-* Working with MongoDB Relationships
-* Integrating third-party APIs (Mapbox & Cloudinary)
-* Applying MVC Architecture for maintainable code
+```text
+http://localhost:8080
+```
 
-## 📸 Screenshots
+---
 
-Add screenshots of:
+# 📸 Project Screenshots
 
-* Home Page
-<img width="887" height="968" alt="image" src="https://github.com/user-attachments/assets/335ed2b8-94ec-446b-94f8-2436a94119f9" />
+## 🏠 Home Page
 
-* Listing Details Page
-* <img width="902" height="966" alt="image" src="https://github.com/user-attachments/assets/01615565-6e06-4da0-8895-494901a9de38" />
+<img width="1191" alt="Home Page" src="https://github.com/user-attachments/assets/b074dee0-032b-4d32-b7fb-ffb82fa65891" />
 
-*Search Functionility
-<img width="1163" height="987" alt="image" src="https://github.com/user-attachments/assets/0c533528-ceb3-4006-b60c-4ae6ef90015d" />
+---
 
+## 📄 Listing Details
 
-* Add Listing Form
-* <img width="911" height="963" alt="image" src="https://github.com/user-attachments/assets/fa9bddec-770c-4bb2-be9f-06a1cc183f44" />
+<img width="1870" alt="Listing Details" src="https://github.com/user-attachments/assets/48c64787-fc89-4035-a0a6-02642b464290" />
 
-* Edit Page
-* <img width="914" height="962" alt="image" src="https://github.com/user-attachments/assets/83b767b3-e8b8-4e44-9f86-8a823984462b" />
+---
 
-*Review Feature
-<img width="901" height="981" alt="image" src="https://github.com/user-attachments/assets/0c61649e-1d53-463f-a657-b8eb495b7942" />
+## 🔍 Search Functionality
 
+Search listings instantly by title, location, country, or description.
 
-## 👨‍💻 Author
+<img width="1163" alt="Search Feature" src="https://github.com/user-attachments/assets/3476eee7-0c48-4b7a-8f97-9b5bf0a60e4d" />
 
-Krishnapal Chouhan
+---
 
-* GitHub: https://github.com/Krishnapal-Chouhan
-* LinkedIn: https://linkedin.com/in/krishnapalchouhan
+## ➕ Add Listing
 
-## 📄 License
+<img width="1332" alt="Add Listing" src="https://github.com/user-attachments/assets/e6769250-5dc5-409c-ae2b-76487a33ba35" />
 
-This project is developed for learning and educational purposes.
+---
+
+## ✏️ Edit Listing
+
+<img width="1801" alt="Edit Listing" src="https://github.com/user-attachments/assets/590dabc8-1b81-4870-a26f-cfc15c516e8f" />
+
+---
+
+## ⭐ Review System
+
+<img width="1910" alt="Reviews" src="https://github.com/user-attachments/assets/b4aac8a6-7a96-43f3-9716-99e8a398b6a2" />
+
+---
+
+## 🗺️ Map Integration
+
+<img width="989" alt="Map Feature" src="https://github.com/user-attachments/assets/dc96f06d-0bf6-40b2-a0c8-dd1a3abfac48" />
+
+---
+
+## 🔐 Login Page
+
+<img width="1900" alt="Login Page" src="https://github.com/user-attachments/assets/695602f0-95af-4765-adba-e41d56c841d4" />
+
+---
+
+## 📝 Signup Page
+
+<img width="1904" alt="Signup Page" src="https://github.com/user-attachments/assets/034035ec-58b3-4b2c-b85d-eb687492fa87" />
+
+---
+
+## ✅ Client-side Validation
+
+<img width="1813" alt="Client Validation" src="https://github.com/user-attachments/assets/31218af6-0ba9-49de-a278-fe80c5638f2e" />
+
+---
+
+## 🛡️ Server-side Validation
+
+<img width="1837" alt="Server Validation" src="https://github.com/user-attachments/assets/6c5f5f2d-3f86-4bb5-9940-9f795325f115" />
+
+---
+
+## 📌 Footer
+
+<img width="938" alt="Footer" src="https://github.com/user-attachments/assets/f69bef4a-891c-4df8-b767-45ca9c642f78" />
+
+---
+
+# 🎯 Key Learning Outcomes
+
+* Full Stack Web Development using Node.js & Express.js
+* Authentication & Authorization with Passport.js
+* MongoDB Database Design & Relationships
+* RESTful API Development
+* MVC Architecture Implementation
+* Cloudinary Image Upload & Management
+* Interactive Maps using Mapbox
+* Search using MongoDB Regular Expressions (`$regex`)
+* Client-side & Server-side Validation
+* Session Management & Flash Messages
+* Responsive UI Design using Bootstrap
+
+---
+
+# 🚀 Future Enhancements
+
+* ❤️ Wishlist Feature
+* 📅 Booking System
+* 💳 Online Payments (Stripe/Razorpay)
+* 👤 User Dashboard
+* 🏷️ Property Categories & Filters
+* 🔔 Email Notifications
+* 🌙 Dark Mode
+* 📊 Admin Dashboard
+
+---
+
+# 👨‍💻 Author
+
+**Krishnapal Chouhan**
+
+* **GitHub:** https://github.com/Krishnapal-Chouhan
+* **LinkedIn:** https://linkedin.com/in/krishnapalchouhan
+
+---
+
+# ⭐ Support
+
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub. Your support motivates future improvements and helps others discover the project.
+
+---
+
+# 📄 License
+
+This project is developed for **learning, educational, and portfolio purposes**.
