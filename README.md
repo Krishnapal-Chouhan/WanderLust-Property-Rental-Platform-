@@ -138,6 +138,10 @@ Add screenshots of:
 * Listing Details Page
 * <img width="902" height="966" alt="image" src="https://github.com/user-attachments/assets/01615565-6e06-4da0-8895-494901a9de38" />
 
+*Search Functionility
+<img width="1163" height="987" alt="image" src="https://github.com/user-attachments/assets/0c533528-ceb3-4006-b60c-4ae6ef90015d" />
+
+
 * Add Listing Form
 * <img width="911" height="963" alt="image" src="https://github.com/user-attachments/assets/fa9bddec-770c-4bb2-be9f-06a1cc183f44" />
 
