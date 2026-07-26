@@ -16,8 +16,8 @@ h1 {
 
 /* ===== Container spacing ===== */
 .container {
-     max-width: 1800px;   /* increase page width */
-    padding: 10px;
+     max-width: 2000px;   /* increase page width */
+    padding: 1px;
 }
 
 
